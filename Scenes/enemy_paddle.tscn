@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://2scb1wys55g8"]
+
+[ext_resource type="Texture2D" uid="uid://k11l1k4cy1lu" path="res://Assets/Computer.png" id="1_6yod1"]
+[ext_resource type="Script" path="res://Scenes/enemy_paddle.gd" id="1_t17ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6dlk"]
+size = Vector2(18, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijtke"]
+size = Vector2(19, 120)
+
+[node name="EnemyPaddle" type="CharacterBody2D" groups=["Paddle"]]
+collision_mask = 6
+script = ExtResource("1_t17ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.25, 0)
+scale = Vector2(1.14706, 1)
+texture = ExtResource("1_6yod1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_w6dlk")
+
+[node name="ShiftArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShiftArea"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_ijtke")
+
+[connection signal="body_entered" from="ShiftArea" to="." method="_on_shift_area_body_entered"]

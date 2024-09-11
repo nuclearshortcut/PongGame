@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://m4qcsiiiy0ee"]
+
+[ext_resource type="Script" path="res://Scenes/UI.gd" id="1_w7fbh"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_w7fbh")
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Score"]
+layout_mode = 1
+offset_left = 462.0
+offset_top = 1.0
+offset_right = 576.0
+offset_bottom = 24.0
+scale = Vector2(2, 2)
+alignment = 1
+
+[node name="EnemyScore" type="Label" parent="Score/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="Label" type="Label" parent="Score/HBoxContainer"]
+layout_mode = 2
+text = "           "
+
+[node name="PlayerScore" type="Label" parent="Score/HBoxContainer"]
+layout_mode = 2
+text = "0"
